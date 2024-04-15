@@ -1,43 +1,6 @@
 <h1 align="center">Hi 👋, I'm Mario Oklevski</h1>
 <h3 align="center">A passionate software engineer</h3>
 
-<p dir="auto">
-  <img
-    align="center"
-    src="https://github-readme-streak-stats.herokuapp.com/?user=mariooklevski&"
-    alt="mariooklevski"
-    style="max-width: 100%;"
-  />
-</p>
-
-<h3 align="left">Connect with me:</h3>
-<p align="left">
-  <a href="https://linkedin.com/in/mario-oklevski" target="blank"
-    ><img
-      align="center"
-      src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg"
-      alt="mario-oklevski"
-      height="30"
-      width="40"
-  /></a>
-  <a href="https://fb.com/mariooklevski" target="blank"
-    ><img
-      align="center"
-      src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/facebook.svg"
-      alt="mariooklevski"
-      height="30"
-      width="40"
-  /></a>
-  <a href="https://instagram.com/mario.oklevski" target="blank"
-    ><img
-      align="center"
-      src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg"
-      alt="mario.oklevski"
-      height="30"
-      width="40"
-  /></a>
-</p>
-
 <h3 align="left">Languages and Tools:</h3>
 <h4 align="left">Programming Languages:</h4>
 <p align="left">
@@ -273,4 +236,41 @@
       height="40"
     />
   </a>
+</p>
+
+<p dir="auto">
+  <img
+    align="center"
+    src="https://github-readme-streak-stats.herokuapp.com/?user=mariooklevski&"
+    alt="mariooklevski"
+    style="width: 100%;"
+  />
+</p>
+
+<h3 align="left">Connect with me:</h3>
+<p align="left">
+  <a href="https://linkedin.com/in/mario-oklevski" target="blank"
+    ><img
+      align="center"
+      src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg"
+      alt="mario-oklevski"
+      height="30"
+      width="40"
+  /></a>
+  <a href="https://fb.com/mariooklevski" target="blank"
+    ><img
+      align="center"
+      src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/facebook.svg"
+      alt="mariooklevski"
+      height="30"
+      width="40"
+  /></a>
+  <a href="https://instagram.com/mario.oklevski" target="blank"
+    ><img
+      align="center"
+      src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg"
+      alt="mario.oklevski"
+      height="30"
+      width="40"
+  /></a>
 </p>
