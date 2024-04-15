@@ -1,6 +1,15 @@
 <h1 align="center">Hi 👋, I'm Mario Oklevski</h1>
 <h3 align="center">A passionate software engineer</h3>
 
+<p dir="auto">
+  <img
+    align="center"
+    src="https://github-readme-streak-stats.herokuapp.com/?user=mariooklevski&"
+    alt="mariooklevski"
+    style="max-width: 100%;"
+  />
+</p>
+
 <h3 align="left">Connect with me:</h3>
 <p align="left">
   <a href="https://linkedin.com/in/mario-oklevski" target="blank"
@@ -265,12 +274,3 @@
     />
   </a>
 </p>
-
-<p dir="auto">
-  <img
-    align="center"
-    src="https://github-readme-streak-stats.herokuapp.com/?user=mariooklevski&"
-    alt="mariooklevski"
-    style="max-width: 100%;"
-  />
-</div>
