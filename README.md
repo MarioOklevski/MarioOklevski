@@ -274,10 +274,10 @@
   </a>
 </p>
 
-<p>
+<div>
   <img
     align="center"
     src="https://github-readme-streak-stats.herokuapp.com/?user=mariooklevski&"
     alt="mariooklevski"
   />
-</p>
+</div>
