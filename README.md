@@ -231,12 +231,9 @@
 </p>
 
 <p dir="auto">
-  <img
-    align="center"
-    src="https://github-readme-streak-stats.herokuapp.com/?user=mariooklevski&"
-    alt="mariooklevski"
-    style="width: 100%;"
-  />
+  <a href="https://git.io/streak-stats">
+      <img src="https://streak-stats.demolab.com?user=MarioOklevski&theme=dark&hide_border=true&border_radius=4.4" alt="GitHub Streak" />
+  </a>
 </p>
 
 <h3 align="left">Connect with me:</h3>
