@@ -232,7 +232,7 @@
 
 <p dir="auto">
   <a href="https://git.io/streak-stats">
-      <img src="https://streak-stats.demolab.com?user=MarioOklevski&theme=dark&hide_border=true&border_radius=4.4" alt="GitHub Streak" />
+      <img src="https://streak-stats.demolab.com?user=MarioOklevski&theme=dark&hide_border=true&border_radius=4.4" alt="GitHub Streak" style="width: 100%" />
   </a>
 </p>
 
