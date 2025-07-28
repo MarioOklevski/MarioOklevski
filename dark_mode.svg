@@ -49,7 +49,7 @@ text, tspan {white-space: pre;}
 <text x="390" y="30" fill="#c9d1d9">
 <tspan x="370" y="30">MarioOklevski</tspan> -———————————————————————————————————————————-—-
 <tspan x="370" y="50" class="cc">. </tspan><tspan class="key">OS</tspan>:<tspan class="cc"> ........................ </tspan><tspan class="value">Linux, Windows 10, Android 14</tspan>
-<tspan x="370" y="70" class="cc">. </tspan><tspan class="key">Uptime</tspan>:<tspan class="cc" id="age_data_dots"></tspan> ........................ <tspan class="value" id="age_data">26 years, 4 months, 11 days</tspan>
+<tspan x="370" y="70" class="cc">. </tspan><tspan class="key">Uptime</tspan>:<tspan class="cc" id="age_data_dots"></tspan> ........................ <tspan class="value" id="age_data">26 years, 4 months, 12 days</tspan>
 <tspan x="370" y="90" class="cc">. </tspan><tspan class="key">Host</tspan>:<tspan class="cc"> ........................... </tspan><tspan class="value">Nebula Cloud Solutions</tspan>
 <tspan x="370" y="110" class="cc">. </tspan><tspan class="key">Kernel</tspan>:<tspan class="cc"> ........................ </tspan><tspan class="value">Software Engineer</tspan>
     <tspan x="370" y="130" class="cc">. </tspan><tspan class="key">IDE</tspan>:<tspan class="cc"> ........................ </tspan><tspan class="value">Neovim 0.11, VSCode 1.100.3</tspan>
