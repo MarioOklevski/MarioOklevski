@@ -40,11 +40,37 @@ def format_plural(unit):
     return 's' if unit != 1 else ''
 
 
+def post_with_retry(query, variables, retries=5):
+    """
+    POSTs to GitHub's GraphQL API, retrying with exponential backoff on
+    transient server errors (500/502/503/504) and network timeouts.
+    Returns the last response received.
+    """
+    request = None
+    for attempt in range(retries):
+        try:
+            request = requests.post('https://api.github.com/graphql', json={'query': query, 'variables': variables}, headers=HEADERS, timeout=60)
+        except (requests.exceptions.ConnectionError, requests.exceptions.Timeout) as error:
+            if attempt == retries - 1:
+                raise
+            wait = 2 ** attempt
+            print(f'GitHub request failed ({error.__class__.__name__}), retrying in {wait}s (attempt {attempt + 1}/{retries})')
+            time.sleep(wait)
+            continue
+        if request.status_code not in (500, 502, 503, 504):
+            return request
+        if attempt < retries - 1:
+            wait = 2 ** attempt # 1, 2, 4, 8 seconds
+            print(f'GitHub returned {request.status_code}, retrying in {wait}s (attempt {attempt + 1}/{retries})')
+            time.sleep(wait)
+    return request
+
+
 def simple_request(func_name, query, variables):
     """
     Returns a request, or raises an Exception if the response does not succeed.
     """
-    request = requests.post('https://api.github.com/graphql', json={'query': query, 'variables':variables}, headers=HEADERS)
+    request = post_with_retry(query, variables)
     if request.status_code == 200:
         return request
     raise Exception(func_name, ' has failed with a', request.status_code, request.text, QUERY_COUNT)
@@ -108,7 +134,8 @@ def graph_repos_stars(count_type, owner_affiliation, cursor=None, add_loc=0, del
 
 def recursive_loc(owner, repo_name, data, cache_comment, addition_total=0, deletion_total=0, my_commits=0, cursor=None):
     """
-    Uses GitHub's GraphQL v4 API and cursor pagination to fetch 100 commits from a repository at a time
+    Uses GitHub's GraphQL v4 API and cursor pagination to fetch 50 commits from a repository at a time
+    (100 per page often times out with a 502 on large repositories)
     """
     query_count('recursive_loc')
     query = '''
@@ -117,7 +144,7 @@ def recursive_loc(owner, repo_name, data, cache_comment, addition_total=0, delet
             defaultBranchRef {
                 target {
                     ... on Commit {
-                        history(first: 100, after: $cursor) {
+                        history(first: 50, after: $cursor) {
                             totalCount
                             edges {
                                 node {
@@ -144,7 +171,7 @@ def recursive_loc(owner, repo_name, data, cache_comment, addition_total=0, delet
         }
     }'''
     variables = {'repo_name': repo_name, 'owner': owner, 'cursor': cursor}
-    request = requests.post('https://api.github.com/graphql', json={'query': query, 'variables':variables}, headers=HEADERS) # I cannot use simple_request(), because I want to save the file before raising Exception
+    request = post_with_retry(query, variables) # I cannot use simple_request(), because I want to save the file before raising Exception
     if request.status_code == 200:
         if request.json()['data']['repository']['defaultBranchRef'] != None: # Only count commits if repo isn't empty
             return loc_counter_one_repo(owner, repo_name, data, cache_comment, request.json()['data']['repository']['defaultBranchRef']['target']['history'], addition_total, deletion_total, my_commits)
@@ -157,7 +184,7 @@ def recursive_loc(owner, repo_name, data, cache_comment, addition_total=0, delet
 
 def loc_counter_one_repo(owner, repo_name, data, cache_comment, history, addition_total, deletion_total, my_commits):
     """
-    Recursively call recursive_loc (since GraphQL can only search 100 commits at a time) 
+    Recursively call recursive_loc (since GraphQL can only search a limited number of commits at a time)
     only adds the LOC value of commits authored by me
     """
     for node in history['edges']:
